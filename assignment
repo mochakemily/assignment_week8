@@ -1,0 +1,20 @@
+import os
+
+def main():
+    directory = input("Please enter the path to your file: ")
+    filename = input("Please enter filename: ")
+    if os.path.isdir(directory):
+        writeFile = open(os.path.join(directory,filename),'w')
+        name = input("Name here: ")
+        address = input("Address here: ")
+        phone = input("Phone number here: ")
+        writeFile.write(name+", "+address+", "+phone+'')
+
+        print("File contents: ")
+        readFile = open(os.path.join(directory,filename),'r')
+        for line in readFile:
+            print(line)
+        readFile.close()
+    else:
+        print("Path not located. Please try again.")
+main()
